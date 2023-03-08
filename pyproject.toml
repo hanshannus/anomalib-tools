@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "crayon-cv-anomaly"
+name = "anomalib_tools"
 version = "0.1.0"
 authors = ["Johannes Hecher <johannes.hecher@crayon.com>"]
 description = ""
