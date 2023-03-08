@@ -3,9 +3,12 @@ name = "crayon-cv-anomaly"
 version = "0.1.0"
 authors = ["Johannes Hecher <johannes.hecher@crayon.com>"]
 description = ""
+packages = [
+    { include = "crayon-cv-anomaly" }
+]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 anomalib = "0.4.0"
 
 [tool.poetry.group.dev.dependencies]
@@ -15,6 +18,5 @@ flake8 = "^6.0.0"
 pre-commit = "^3.1.1"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["setuptools", "poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-
