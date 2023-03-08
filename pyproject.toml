@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Johannes Hecher <johannes.hecher@crayon.com>"]
 description = ""
 packages = [
-    { include = "crayon-cv-anomaly" }
+    { include = "anomalib_tools" }
 ]
 
 [tool.poetry.dependencies]
