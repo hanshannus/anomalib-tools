@@ -4,17 +4,19 @@ from anomalib.data import get_datamodule
 from anomalib.models import get_model
 from anomalib.utils.callbacks import get_callbacks
 from anomalib.utils.loggers import configure_logger, get_experiment_logger
+from pathlib import Path
+from typing import Union
 from .util import load_config
 
 logger = logging.getLogger("anomalib")
 
 
 def train(
-    config_path: str,
-    data_dir: str = None,
-    output_dir: str = None,
-    ckpt_path: str = None,
-    max_epochs: int = None,
+    config_path: Union[str, Path],
+    data_dir: Union[str, Path] = None,
+    output_dir: Union[str, Path] = None,
+    ckpt_path: Union[str, Path] = None,
+    max_epochs: Union[str, Path] = None,
 ) -> str:
     """Train Anomalib model.
 
@@ -36,6 +38,11 @@ def train(
     str
         Path to the best checkpoint.
     """
+    config_path = str(config_path)
+    data_dir = str(data_dir)
+    output_dir = str(output_dir)
+    ckpt_path = str(ckpt_path)
+
     configure_logger(level="INFO")
 
     logger.info("Load configuration file.")
