@@ -1,37 +1,37 @@
 import logging
+from omegaconf import DictConfig
 from pytorch_lightning import Trainer
 from anomalib.data import get_datamodule
 from anomalib.models import get_model
 from anomalib.utils.callbacks import get_callbacks
-from anomalib.utils.loggers import configure_logger, get_experiment_logger
+from anomalib.utils.loggers import get_experiment_logger
 from pathlib import Path
 from typing import Union
+from loguru import logger
 from .util import load_config
-
-logger = logging.getLogger("anomalib")
 
 
 def train(
-    config_path: Union[str, Path],
+    config: Union[str, Path, dict, DictConfig],
 ) -> Trainer:
     """Train Anomalib model.
 
     Parameters
     ----------
-    config_path : str
-        Path to the configuration file.
+    config : str, Path, dict
+        Path to the configuration file or dictionary with the configuration.
 
     Returns
     -------
     Trainer
         Pytorch lightning trainer after training.
     """
-    config_path = str(config_path)
-
-    configure_logger(level="INFO")
-
-    logger.info("Load configuration file.")
-    config = load_config(config_path)
+    print(config)
+    if isinstance(config, (str, Path)):
+        logger.info("Load configuration file.")
+        config = load_config(str(config))
+    elif isinstance(config, dict):
+        config = DictConfig(config)
 
     logger.info("Define Datamodule.")
     datamodule = get_datamodule(config)

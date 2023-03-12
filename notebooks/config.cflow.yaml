@@ -1,7 +1,7 @@
 dataset:
   name: mvtec
   format: mvtec
-  path: ./datasets/MVTec
+  path: /Users/hannes/Data/mvtec
   category: carpet
   task: segmentation
   train_batch_size: 16
@@ -60,7 +60,7 @@ visualization:
   mode: full # options: ["full", "simple"]
 
 project:
-  path: ./results
+  path: /Users/hannes/Data/results
 
 logging:
   logger: [] # options: [comet, tensorboard, wandb, csv] or combinations.
