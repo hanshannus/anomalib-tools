@@ -2,10 +2,7 @@
 name = "anomalibtools"
 version = "0.1.1"
 authors = ["Johannes Hecher <johannes.hecher@crayon.com>"]
-description = ""
-packages = [
-    { include = "anomalibtools" }
-]
+description = "Scripts for training and inference of anomalib models."
 
 [tool.poetry.dependencies]
 python = "^3.8.1"
